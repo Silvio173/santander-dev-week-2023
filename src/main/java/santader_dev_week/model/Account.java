@@ -2,6 +2,8 @@ package santader_dev_week.model;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Entity(name = "tb_account")
 public class Account {
     @Id
@@ -10,14 +12,14 @@ public class Account {
     @Column(unique = true)
     private String number;
     private String agency;
-    @Column(nullable = false)
-    private Double balance;
-    @Column(name = "additionLimit")
-    private Double limit;
+    @Column(nullable = false, precision = 13, scale = 2)
+    private BigDecimal balance;
+    @Column(name = "additionLimit",precision = 13,scale = 2)
+    private BigDecimal limit;
 
     public Account() {
     }
-    public Account(String number, String agency, Double balance, Double limit) {
+    public Account(String number, String agency, BigDecimal balance, BigDecimal limit) {
         this.number = number;
         this.agency = agency;
         this.balance = balance;
@@ -40,19 +42,19 @@ public class Account {
         this.agency = agency;
     }
 
-    public Double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(Double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 
-    public Double getLimit() {
+    public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(Double limit) {
+    public void setLimit(BigDecimal limit) {
         this.limit = limit;
     }
 }
