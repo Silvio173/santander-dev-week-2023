@@ -1,0 +1,20 @@
+server:
+  port: ${PORT:8080}
+spring:
+  datasource:
+    url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}
+    username: ${PGUSER}
+    password: ${PGPASSWORD}
+#    url: jdbc:postgresql://autorack.proxy.rlwy.net:32662/railway
+#    username: postgres
+#    password: GZzYyPfpODXmkdVoYhHVKyHclFPaSToh
+  jpa:
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate #create  # Corrigido de db-auto para ddl-auto
+    properties:
+      hibernate:
+        format_sql: true  # Corrigido de format_sql:true para format_sql: true
+
+
